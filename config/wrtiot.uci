@@ -1,0 +1,3 @@
+config 'settings' 'IOT'
+        option 'IOTServer' 'lewei'
+        option 'API_KEY' ''

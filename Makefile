@@ -1,26 +1,26 @@
 # Copyright (c) 2011-2012 Edwin Chen
+# Copyright (c) 2014 Mikeqin 
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=dragino
-PKG_VERSION:=2.2-IoT
-PKG_RELEASE:=3
+PKG_NAME:=wrtiot
+PKG_VERSION:=0.1-IoT
+PKG_RELEASE:=1
 
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/dragino
+define Package/wrtiot
   SECTION:=utils
   CATEGORY:=Utilities
   DEPENDS:=+libdaemon +liblua
-  TITLE:=Dragino -- OpenWrt Sensor Project
-  URL:=http://www.dragino.com
-  MAINTAINER:=Edwin Chen <edwin@dragino.com>
+  TITLE:=WRTIOT -- OpenWrt IOT Project
+  MAINTAINER:=Mikeqin <Fengling.Qin@gmail.com>
 endef
 
-define Package/dragino/description
-	Code for dragino project.
+define Package/wrtiot/description
+	Code for wrtiot project.
 endef
 
 define Build/Prepare
@@ -28,35 +28,26 @@ define Build/Prepare
 	$(CP) ./src/* $(PKG_BUILD_DIR)/
 	$(CP) ./luasrc/* $(PKG_BUILD_DIR)/
 	$(CP) ./config/* $(PKG_BUILD_DIR)/
-	$(CP) -r ./files $(PKG_BUILD_DIR)/files
 endef
 
 #define Build/Compile
 #endef
 BUILD_TIME:=$(shell date)
 
-define Package/dragino/install
+define Package/wrtiot/install
 	$(INSTALL_DIR) $(1)/etc
-
-	$(INSTALL_DIR) $(1)/usr/lib/sensor
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/files/usr/lib/sensor/* $(1)/usr/lib/sensor/
-
 	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/sensor.uci $(1)/etc/config/sensor
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/IoTServer.uci $(1)/etc/config/IoTServer
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/wrtiot.uci $(1)/etc/config/wrtiot
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/dragino.init $(1)/etc/init.d/dragino
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/wrtiot.init $(1)/etc/init.d/wrtiot
 
 	$(INSTALL_DIR) $(1)/usr/sbin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/luad $(1)/usr/sbin/
 	$(LN) /usr/sbin/luad $(1)/usr/sbin/IoTd
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/IoTd.lua $(1)/usr/sbin/
 
-	$(INSTALL_DIR) $(1)/usr/bin
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/fdude.lua $(1)/usr/bin/fdude
-
-	$(INSTALL_DIR) $(1)/usr/lib/lua/dragino
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/dragino/*.lua $(1)/usr/lib/lua/dragino/
+	$(INSTALL_DIR) $(1)/usr/lib/lua/wrtiot
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/wrtiot/*.lua $(1)/usr/lib/lua/wrtiot/
 endef
 
-$(eval $(call BuildPackage,dragino))
+$(eval $(call BuildPackage,wrtiot))

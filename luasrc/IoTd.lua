@@ -140,6 +140,3 @@ while true do
 end
 serialin:close()
 
-
-
-
