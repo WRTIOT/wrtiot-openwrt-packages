@@ -1,0 +1,24 @@
+config server yeelink
+	option URL www.yeelink.net
+	option API_link http://api.yeelink.net/v1.0/
+	option devices devices
+	option device device/
+	option sensors  sensors
+	option sensor sensor/
+	option datapoints datapoints
+	option datapoint	datapoint/
+	option photos	photos
+	option servertype REST
+	option value value
+
+config server xively
+	option URL xively.com
+	option API_link https://api.xively.com/v2/
+	option devices feeds
+	option device feeds/
+	option sensors  datastreams
+	option sensor datastreams/
+	option datapoints datapoints
+	option datapoint	datapoints/
+	option servertype REST
+	option value current_value

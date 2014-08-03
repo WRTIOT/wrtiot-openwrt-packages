@@ -1,0 +1,33 @@
+############################################################
+##Dragrove Actuator Info Table
+##     Each entry must include 6 fields, each field deviced by a comma (,)
+##     don't use comma (,) at the end of the entry
+##    
+##     ActuatorID:Different type sensor have different ID
+##    
+##     Name: Will show on the title filed on Yeelink.
+##     Name must not be nil, use SPACE instead.
+##     available characters for Name: 
+##          1)  Space [ ]
+##          2)  minus [-] 
+##          3)  alphanumeric [0-9][a-z][A-Z]
+##          4)  underscore [_]
+##
+##                       
+############################################################
+
+ActuatorID,Name,wired
+128,Grove - Relay,IO
+129,Grove - LED,IO
+134,Grove - Purple LED,IO
+135,Grove - Multi Color Flash LED,IO
+136,Grove - Variable Color LED,IO
+137,Grove - Buzzer,IO
+138,Grove - Vibrator,IO
+200,Grove - OLED Display,I2C
+201,Grove - OLED 96x96,I2C
+220,Grove - 4-Digit Display,2 wire
+221,Grove - LED Bar,2 wire
+230,Grove - Infrared Emitter,IR
+231,Servo,IO
+232,Motor,IO
