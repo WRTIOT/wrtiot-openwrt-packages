@@ -12,11 +12,11 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/wrtiot
-  SECTION:=utils
-  CATEGORY:=Utilities
-  DEPENDS:=+libdaemon +liblua
-  TITLE:=WRTIOT -- OpenWrt IOT Project
-  MAINTAINER:=Mikeqin <Fengling.Qin@gmail.com>
+	SECTION:=utils
+	CATEGORY:=Utilities
+	DEPENDS:=+libdaemon +liblua
+	TITLE:=WRTIOT -- OpenWrt IOT Project
+	MAINTAINER:=Mikeqin <Fengling.Qin@gmail.com>
 endef
 
 define Package/wrtiot/description
