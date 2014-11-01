@@ -6,6 +6,7 @@ START=98
 
 start()
 {
+	stty -F /dev/ttyUSB0 115200
 	/usr/sbin/IoTd 
 }
 
